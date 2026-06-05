@@ -1,0 +1,60 @@
+model:
+  svd_model_id: stabilityai/stable-video-diffusion-img2vid-xt
+  text_encoder_id: openai/clip-vit-large-patch14
+  text_hidden_dim: 768
+  unet_cross_attention_dim: 1024
+  lora_r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  lora_target_modules:
+  - to_q
+  - to_k
+  - to_v
+  - to_out.0
+  conditioning_mode: replace
+data:
+  data_root: ./data/f1_dataset
+  num_frames: 8
+  image_size: 128
+  fps: 10
+  stride: 4
+  num_workers: 0
+  pin_memory: false
+training:
+  batch_size: 1
+  gradient_accumulation_steps: 8
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  lr_scheduler: cosine_with_restarts
+  lr_warmup_steps: 500
+  num_epochs: 50
+  mixed_precision: 'no'
+  gradient_checkpointing: true
+  max_grad_norm: 1.0
+  save_steps: 500
+  eval_steps: 250
+  log_steps: 50
+  output_dir: ./checkpoints
+  resume_from_checkpoint: null
+  seed: 42
+  snr_gamma: 5.0
+inference:
+  checkpoint_dir: ./checkpoints/latest
+  num_inference_steps: 25
+  fps: 10
+  motion_bucket_id: 127
+  noise_aug_strength: 0.02
+  decode_chunk_size: 8
+  output_dir: ./outputs
+evaluation:
+  flow_method: farneback
+  farneback_params:
+    pyr_scale: 0.5
+    levels: 3
+    winsize: 15
+    iterations: 3
+    poly_n: 5
+    poly_sigma: 1.2
+  save_heatmaps: true
+  heatmap_dir: ./eval/heatmaps
+  num_heatmap_layers: 4
