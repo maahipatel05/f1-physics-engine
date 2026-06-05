@@ -1,0 +1,43 @@
+# Core Deep Learning
+torch>=2.1.0
+torchvision>=0.16.0
+torchaudio>=2.1.0
+
+# Diffusion / Generative Models
+diffusers>=0.25.0
+transformers>=4.36.0
+peft>=0.7.1
+accelerate>=0.25.0
+safetensors>=0.4.0
+# xformers>=0.0.23
+
+# F1 Data
+fastf1>=3.2.0
+
+# Vision / Video
+opencv-python>=4.8.1
+imageio>=2.33.0
+imageio-ffmpeg>=0.4.9
+moviepy>=1.0.3
+Pillow>=10.0.0
+
+# Scientific Computing
+numpy>=1.24.0
+scipy>=1.11.0
+einops>=0.7.0
+
+# Visualization / Logging
+matplotlib>=3.8.0
+wandb>=0.16.0
+tqdm>=4.66.0
+seaborn>=0.13.0
+
+# Configuration
+omegaconf>=2.3.0
+PyYAML>=6.0.1
+
+# HuggingFace Hub
+huggingface_hub>=0.20.0
+
+# Optional: quantization for memory savings
+# bitsandbytes>=0.41.0

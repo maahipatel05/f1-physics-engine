@@ -1,0 +1,79 @@
+# ============================================================
+# F1 Physics Engine — .gitignore
+# ============================================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.Python
+
+# Virtual environments
+env/
+venv/
+.venv/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Distribution / packaging
+.cache/
+pip-wheel-metadata/
+
+# Training outputs
+checkpoints/
+!checkpoints/config.yaml      # keep the example config snapshot
+outputs/
+logs/
+wandb/
+runs/
+
+# Evaluation outputs
+eval/
+
+# Data (large files — keep directory structure but not content)
+data/f1_cache/
+data/f1_dataset/sessions/*/frames/
+data/f1_dataset/sessions/*/telemetry.csv
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V7
+.Trashes
+__MACOSX/
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# HuggingFace / model weights (too large for git)
+*.bin
+*.pt
+*.pth
+*.safetensors
+
+# Temp / misc
+*.log
+*.tmp
+*.bak
+tmp/
